@@ -15,5 +15,17 @@
     "express-validator": "^7.3.2",
     "jsonwebtoken": "^9.0.3",
     "mongoose": "^9.11.4"
-  }
+  },
+  "main": "app.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MaxiSoriaGit/trabajo-practico-integrador-4.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MaxiSoriaGit/trabajo-practico-integrador-4/issues"
+  },
+  "homepage": "https://github.com/MaxiSoriaGit/trabajo-practico-integrador-4#readme"
 }
