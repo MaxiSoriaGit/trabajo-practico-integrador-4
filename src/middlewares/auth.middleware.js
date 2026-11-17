@@ -1,5 +1,5 @@
 // * ARCHIVO A COMPLETAR
-import { verifyToken } from "../helpers/jwt.helper.js";
+import { verifyToken } from '../helpers/jwt.helper.js';
 
 export const authMiddleware = (req, res, next) => {
   // TODO: 1. Leer el token de la cookie "token". Si no existe: 401 con { ok: false, mensaje: "No autorizado" }.
