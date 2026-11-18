@@ -35,7 +35,7 @@ export const createTicketValidation = [
   body('priority')
     .optional()
     .isIn(PRIORITIES)
-    .withMessage(`La prioridad debe ser uno de: ${ESTADOS.join(', ')}`),
+    .withMessage(`La prioridad debe ser uno de: ${PRIORITIES.join(', ')}`),
 
   // TODO: 5. tags: opcional; si viene, arreglo con al menos 1 elemento, sin ids repetidos, y cada uno un ObjectId de un tag existente y ACTIVO.
   // ? Para cada elemento de un arreglo se usa el comodín: body("tags.*"). Formato (isMongoId + bail) antes de consultar la base.
@@ -86,7 +86,6 @@ export const updateTicketValidation = [
     .optional()
     .isIn(PRIORITIES)
     .withMessage(`priority debe ser: ${PRIORITIES.join(', ')}`),
-  ...tagsRules,
 ];
 
 export const assignTicketValidation = [
