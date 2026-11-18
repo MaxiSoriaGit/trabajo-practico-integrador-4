@@ -6,10 +6,10 @@
 export const authorize =
   (...roles) =>
   (req, res, next) => {
-    if (!req.user.role !== 'administrador') {
+    if (!req.user || !roles.includes(req.user.role)) {
       return res.status(403).json({
         ok: false,
-        mensaje: 'Acceso denegado: se requiere el rol del admin',
+        mensaje: 'Forbidden',
       });
     }
     next();

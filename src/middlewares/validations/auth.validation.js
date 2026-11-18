@@ -2,7 +2,7 @@
 import { body } from 'express-validator';
 import { UserModel } from '../../models/index.js';
 
-const ESTADOS = ['agent', 'administrador'];
+const ESTADOS = ['client', 'agent', 'administrator'];
 
 export const registerValidation = [
   // TODO: 1. username: obligatorio, entre 3 y 20 caracteres y único entre usuarios ACTIVOS.
