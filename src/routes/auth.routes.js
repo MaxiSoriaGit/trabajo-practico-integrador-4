@@ -11,14 +11,6 @@ import {
 export const authRoutes = Router();
 
 // TODO: 1. register y login son públicos (con sus validaciones); logout requiere sesión iniciada.
-authRoutes.post('/register', registerValidation, validarCampos, register);
-authRoutes.post('/login', loginValidation, validarCampos, login);
-authRoutes.get('/profile', authMiddleware, logout);
-authRoutes.put(
-  '/profile',
-  authMiddleware,
-  registerValidation,
-  validarCampos,
-  loginValidation,
-);
-authRoutes.post('/logout', authMiddleware, logout);
+authRoutes.post('/auth/register', registerValidation, validarCampos, register);
+authRoutes.post('/auth/login', loginValidation, validarCampos, login);
+authRoutes.get('/auth/profile', authMiddleware, logout);

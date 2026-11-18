@@ -7,17 +7,15 @@ const ESTADOS = ['agent', 'administrador'];
 export const registerValidation = [
   // TODO: 1. username: obligatorio, entre 3 y 20 caracteres y único entre usuarios ACTIVOS.
   body('username')
-    .trim()
     .notEmpty()
     .withMessage('el username es obligatorio')
     .isLength({ min: 3, max: 20 })
     .withMessage('El username debe tener entre 3 y 20 caracteres')
-    .isAlphanumeric()
-    .withMessage('El username solo puede tener letras y numeros')
     .bail()
-    .custom(async (user) => {
-      const existe = await UserModel.exists({ username });
+    .custom(async (value) => {
+      const existe = await UserModel.exists({ username: value, activo: true });
       if (existe) throw new Error('Ese username ya esta en uso');
+      return true;
     }),
 
   // TODO: 2. email: obligatorio, con formato válido y único entre usuarios activos.
@@ -37,10 +35,9 @@ export const registerValidation = [
   body('password')
     .notEmpty()
     .withMessage('La contraseña es obligatoria')
-    .isStrongPassword({
-      minLength: 8,
-    })
-    .withMessage('La contraseña debe tener minimo 8 caracteres'),
+    .bail()
+    .isLength({ min: 8 })
+    .withMessage('La contraseña debe tener mínimo 8 caracteres'),
   // TODO: 4. role: opcional y limitado a client, agent y administrator.
   body('role')
     .optional()
