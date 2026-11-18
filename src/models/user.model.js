@@ -48,12 +48,12 @@ const userSchema = new Schema(
 );
 
 // TODO: 4. username y email únicos SOLO entre usuarios activos (índices parciales con activo: true).
-usernameSchema.index(
+userSchema.index(
   { username: 1 },
   { unique: true, partialFilterExpression: { activo: true } },
 );
 
-emailSchema.index(
+userSchema.index(
   { email: 1 },
   { unique: true, partialFilterExpression: { activo: true } },
 );
